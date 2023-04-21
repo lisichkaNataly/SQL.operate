@@ -1,0 +1,64 @@
+Задание 1:
+
+postgres=# CREATE DATABASE skypro;
+postgres=# \c skypro;
+Вы подключены к базе данных "skypro" как пользователь "postgres".
+
+Задание 2:
+
+skypro=# CREATE TABLE employee (
+skypro(# id BIGSERIAL NOT NULL PRIMARY KEY,
+skypro(# first_name VARCHAR(50) NOT NULL,
+skypro(# last_name VARCHAR(50) NOT NULL,
+skypro(# gender VARCHAR(6) NOT NULL,
+skypro(# age INT NOT NULL
+skypro(# );
+CREATE TABLE
+skypro=# SELECT * FROM employee;
+ id | first_name | last_name | gender | age
+----+------------+-----------+--------+-----
+(0 ёЄЁюъш)
+
+Задание 3:
+
+1) skypro=# INSERT INTO employee (
+skypro(# first_name, last_name, gender, age)
+skypro-# VALUES ('Natalya', 'Izmaylova', 'woman', 29);
+INSERT 0 1
+skypro=# INSERT INTO employee (
+skypro(# first_name, last_name, gender, age)
+skypro-#  VALUES ('Olga', 'Moiseeva', 'woman', 54);
+INSERT 0 1
+skypro=# INSERT INTO employee (
+skypro(# first_name, last_name, gender, age)
+skypro-# VALUES ('Petr', 'Fedoseev', 'man', 38);
+INSERT 0 1
+
+2) skypro=# SELECT * FROM employee;
+ id | first_name | last_name | gender | age
+----+------------+-----------+--------+-----
+  1 | Natalya    | Izmaylova | woman  |  29
+  2 | Olga       | Moiseeva  | woman  |  54
+  3 | Petr       | Fedoseev  | man    |  38
+(3 ёЄЁюъш)
+
+3) skypro=# UPDATE employee SET first_name = 'Vladimir', last_name = 'Moiseev', gender = 'man', age = 56 WHERE id = 2;
+UPDATE 1
+
+4) skypro=# SELECT * FROM employee;
+ id | first_name | last_name | gender | age
+----+------------+-----------+--------+-----
+  1 | Natalya    | Izmaylova | woman  |  29
+  3 | Petr       | Fedoseev  | man    |  38
+  2 | Vladimir   | Moiseev   | man    |  56
+(3 ёЄЁюъш)
+
+5) skypro=# DELETE FROM employee WHERE id = 3;
+DELETE 1
+
+6) skypro=# SELECT * FROM employee;
+    id | first_name | last_name | gender | age
+   ----+------------+-----------+--------+-----
+     1 | Natalya    | Izmaylova | woman  |  29
+     2 | Vladimir   | Moiseev   | man    |  56
+   (2 ёЄЁюъш)
